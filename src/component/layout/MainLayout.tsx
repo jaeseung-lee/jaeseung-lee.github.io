@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../header/Header";
 
 interface MainLayoutProp {
   children?: React.ReactNode;
@@ -10,9 +11,13 @@ const MainLayout: React.FunctionComponent<MainLayoutProp> = ({ children }) => {
       className="bg-black text-default"
       style={{
         minHeight: "100dvh",
+        fontFamily: "Pretendard",
       }}
     >
-      {children}
+      <Header />
+      <section className="w-full mt-[2em] flex items-center justify-center">
+        {children}
+      </section>
     </div>
   );
 };
