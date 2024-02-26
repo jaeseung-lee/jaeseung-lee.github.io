@@ -1,22 +1,21 @@
 import React from "react";
 import Header from "../header/Header";
 
-interface MainLayoutProp {
-  children?: React.ReactNode;
-}
-
-const MainLayout: React.FunctionComponent<MainLayoutProp> = ({ children }) => {
+const MainLayout: React.FunctionComponent<React.HTMLAttributes<HTMLElement>> = (
+  props
+) => {
   return (
     <div
-      className="bg-black text-default"
+      {...props}
+      className={"bg-black text-default " + props.className}
       style={{
         minHeight: "100dvh",
         fontFamily: "Pretendard",
       }}
     >
       <Header />
-      <section className="w-full mt-[2em] flex items-center justify-center">
-        {children}
+      <section className="w-full mt-[1em] flex items-center justify-center flex-col">
+        {props.children}
       </section>
     </div>
   );

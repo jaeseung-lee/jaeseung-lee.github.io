@@ -7,7 +7,12 @@ export default {
   theme: {
     extend: {
       colors:{
-        'default':'#EDEDED'
+        'default':'#EDEDED',
+        'boundary':'#333333',
+      },
+      zIndex:{
+        'modal-background':'998',
+        'modal':'999'
       }
     },
   },
