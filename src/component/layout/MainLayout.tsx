@@ -7,7 +7,7 @@ const MainLayout: React.FunctionComponent<React.HTMLAttributes<HTMLElement>> = (
   return (
     <div
       {...props}
-      className={"bg-black text-default " + props.className}
+      className={"bg-black text-default pb-[10vh] " + props.className}
       style={{
         minHeight: "100dvh",
         fontFamily: "Pretendard",

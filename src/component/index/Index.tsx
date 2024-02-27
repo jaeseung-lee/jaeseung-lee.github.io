@@ -39,7 +39,7 @@ const Index: React.FunctionComponent = () => {
         </h1>
       </div>
 
-      <div className="mx-auto flex flex-row items-center w-[calc(100vw-2em)] justify-start overflow-x-auto mt-[0.5em] gap-[1em]">
+      <div className="mx-auto inline-flex flex-wrap items-center w-[calc(100vw-2em)] justify-start overflow-x-auto mt-[0.5em] gap-[1em]">
         {[
           AnimationPanelType.LAYOUT_ID,
           AnimationPanelType.CARD_SPLITTER,
