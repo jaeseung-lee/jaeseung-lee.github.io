@@ -4,6 +4,7 @@ export enum AnimationPanelType {
   ZOOM_SLIDE_SHOW,
   VIEW_BOX,
   CARD_SPLITTER,
+  ACORDIAN,
 }
 
 export const animationPanelTypeToString = (
@@ -24,6 +25,9 @@ export const animationPanelTypeToString = (
     }
     case AnimationPanelType.CARD_SPLITTER: {
       return "Card Splitter";
+    }
+    case AnimationPanelType.ACORDIAN: {
+      return "Acordian";
     }
   }
 };

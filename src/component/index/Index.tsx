@@ -10,6 +10,7 @@ import ZoomSlideShowAnimation from "./animationPanel/ZoomSlideShowAnimation";
 import ViewBox from "./animationPanel/ViewBox";
 import CardSplitter from "./animationPanel/CardSplitter";
 import Graph from "./animationPanel/graph/Graph";
+import Acordian from "./animationPanel/Acordian";
 
 export const animationTypeToPanel = (animationType: AnimationPanelType) => {
   switch (animationType) {
@@ -27,6 +28,9 @@ export const animationTypeToPanel = (animationType: AnimationPanelType) => {
     }
     case AnimationPanelType.GRAPH: {
       return <Graph />;
+    }
+    case AnimationPanelType.ACORDIAN: {
+      return <Acordian />;
     }
   }
 };
@@ -50,6 +54,7 @@ const Index: React.FunctionComponent = () => {
           AnimationPanelType.GRAPH,
           AnimationPanelType.VIEW_BOX,
           AnimationPanelType.ZOOM_SLIDE_SHOW,
+          AnimationPanelType.ACORDIAN,
         ].map((animationPanelType) => (
           <div
             key={animationPanelType}
