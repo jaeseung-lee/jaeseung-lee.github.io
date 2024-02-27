@@ -39,7 +39,7 @@ const ZoomSlideShowAnimation: React.FunctionComponent = () => {
       zIndex: 0,
       transition: {
         type: "tween",
-        delay: 2,
+        delay: 1,
       },
     },
     nextImage: {
@@ -51,7 +51,7 @@ const ZoomSlideShowAnimation: React.FunctionComponent = () => {
       zIndex: 3,
       transition: {
         type: "easeIn",
-        duration: 2,
+        duration: 1,
       },
     },
     backImage: {
@@ -59,7 +59,7 @@ const ZoomSlideShowAnimation: React.FunctionComponent = () => {
       zIndex: 2,
       transition: {
         type: "easeIn",
-        duration: 2,
+        duration: 1,
       },
     },
   };
@@ -86,7 +86,7 @@ const ZoomSlideShowAnimation: React.FunctionComponent = () => {
     isNextOrPrevButtonPressableRef.current = false;
     setTimeout(() => {
       isNextOrPrevButtonPressableRef.current = true;
-    }, 4000);
+    }, 2000);
   }, [imageIndex]);
 
   return (
