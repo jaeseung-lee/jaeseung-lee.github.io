@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import ZoomSlideShowAnimation from "./animationPanel/ZoomSlideShowAnimation";
 import ViewBox from "./animationPanel/ViewBox";
 import CardSplitter from "./animationPanel/CardSplitter";
+import Graph from "./animationPanel/graph/Graph";
 
 export const animationTypeToPanel = (animationType: AnimationPanelType) => {
   switch (animationType) {
@@ -23,6 +24,9 @@ export const animationTypeToPanel = (animationType: AnimationPanelType) => {
     }
     case AnimationPanelType.CARD_SPLITTER: {
       return <CardSplitter />;
+    }
+    case AnimationPanelType.GRAPH: {
+      return <Graph />;
     }
   }
 };
@@ -43,6 +47,7 @@ const Index: React.FunctionComponent = () => {
         {[
           AnimationPanelType.LAYOUT_ID,
           AnimationPanelType.CARD_SPLITTER,
+          AnimationPanelType.GRAPH,
           AnimationPanelType.VIEW_BOX,
           AnimationPanelType.ZOOM_SLIDE_SHOW,
         ].map((animationPanelType) => (

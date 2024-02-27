@@ -1,5 +1,6 @@
 export enum AnimationPanelType {
   LAYOUT_ID,
+  GRAPH,
   ZOOM_SLIDE_SHOW,
   VIEW_BOX,
   CARD_SPLITTER,
@@ -11,6 +12,9 @@ export const animationPanelTypeToString = (
   switch (animationPanelType) {
     case AnimationPanelType.LAYOUT_ID: {
       return "LayoutId";
+    }
+    case AnimationPanelType.GRAPH: {
+      return "Graph";
     }
     case AnimationPanelType.ZOOM_SLIDE_SHOW: {
       return "Zoom Slide Show";
