@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import AnimationPanelLayout from "../../layout/AnimationPanelLayout";
 import { PRELOADED_IMAGE_LIST } from "../../asset/preloadedData";
 import { motion } from "framer-motion";
+import {
+  AnimationPanelType,
+  animationPanelTypeToString,
+} from "./animationPanelType";
 
 const LayoutIdAnimation: React.FunctionComponent = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>();
 
   return (
     <React.Fragment>
-      <AnimationPanelLayout headertext="Layout Id Animation">
+      <AnimationPanelLayout
+        headertext={animationPanelTypeToString(AnimationPanelType.LAYOUT_ID)}
+      >
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-[1em]">
           {PRELOADED_IMAGE_LIST.map((imageSrc, index) => (
             <motion.img
