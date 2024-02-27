@@ -2,6 +2,7 @@ export enum AnimationPanelType {
   LAYOUT_ID,
   ZOOM_SLIDE_SHOW,
   VIEW_BOX,
+  CARD_SPLITTER,
 }
 
 export const animationPanelTypeToString = (
@@ -16,6 +17,9 @@ export const animationPanelTypeToString = (
     }
     case AnimationPanelType.VIEW_BOX: {
       return "View Box";
+    }
+    case AnimationPanelType.CARD_SPLITTER: {
+      return "Card Splitter";
     }
   }
 };

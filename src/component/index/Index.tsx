@@ -8,6 +8,7 @@ import {
 import { motion } from "framer-motion";
 import ZoomSlideShowAnimation from "./animationPanel/ZoomSlideShowAnimation";
 import ViewBox from "./animationPanel/ViewBox";
+import CardSplitter from "./animationPanel/CardSplitter";
 
 export const animationTypeToPanel = (animationType: AnimationPanelType) => {
   switch (animationType) {
@@ -19,6 +20,9 @@ export const animationTypeToPanel = (animationType: AnimationPanelType) => {
     }
     case AnimationPanelType.VIEW_BOX: {
       return <ViewBox />;
+    }
+    case AnimationPanelType.CARD_SPLITTER: {
+      return <CardSplitter />;
     }
   }
 };
@@ -38,8 +42,9 @@ const Index: React.FunctionComponent = () => {
       <div className="mx-auto flex flex-row items-center w-[calc(100vw-2em)] justify-start overflow-x-auto mt-[0.5em] gap-[1em]">
         {[
           AnimationPanelType.LAYOUT_ID,
-          AnimationPanelType.ZOOM_SLIDE_SHOW,
+          AnimationPanelType.CARD_SPLITTER,
           AnimationPanelType.VIEW_BOX,
+          AnimationPanelType.ZOOM_SLIDE_SHOW,
         ].map((animationPanelType) => (
           <div
             key={animationPanelType}
