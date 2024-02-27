@@ -41,7 +41,7 @@ const Index: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <div className="w-[calc(100vw-2em)]">
+      <div className="w-[calc(100vw-2em)] max-w-screen-md mx-auto">
         <h1 className="text-left text-[1.5em]">
           {pathToString(Path.ANIMATION)}
         </h1>

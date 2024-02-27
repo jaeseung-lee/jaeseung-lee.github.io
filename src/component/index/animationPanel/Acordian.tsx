@@ -43,7 +43,7 @@ const Acordian: React.FunctionComponent = () => {
               setOpenedImageIndex(index);
             }}
             animate={{
-              width: openedImageIndex == index ? "80vw" : "5vw",
+              width: openedImageIndex == index ? "80%" : "5%",
               transition: {
                 type: "tween",
                 duration: 0.5,

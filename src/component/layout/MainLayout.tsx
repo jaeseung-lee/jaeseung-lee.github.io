@@ -14,7 +14,7 @@ const MainLayout: React.FunctionComponent<React.HTMLAttributes<HTMLElement>> = (
       }}
     >
       <Header />
-      <section className="w-full mt-[1em] flex items-center justify-center flex-col">
+      <section className="w-full mt-[1em] flex items-center justify-center flex-col mx-auto max-w-screen-md">
         {props.children}
       </section>
     </div>

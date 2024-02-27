@@ -10,7 +10,7 @@ const NavigationMenuButton: React.FunctionComponent<
 > = ({ isNavigationMenuButtonOpened, onClick }) => {
   return (
     <button
-      className="h-[2em] w-[2em] rounded-full border border-default cursor-pointer hover:opacity-50 flex items-center justify-center relative"
+      className="md:hidden h-[2em] w-[2em] rounded-full border border-default cursor-pointer hover:opacity-50 flex items-center justify-center relative"
       onClick={onClick}
     >
       <div

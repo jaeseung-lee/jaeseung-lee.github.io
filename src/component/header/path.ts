@@ -24,3 +24,14 @@ export const pathToString = (path: Path) => {
     }
   }
 };
+
+export const textToPath = (text: string) => {
+  switch (text) {
+    case "portfolio": {
+      return Path.PORTFOLIO;
+    }
+    default: {
+      return Path.ANIMATION;
+    }
+  }
+};
