@@ -5,8 +5,12 @@ import {
   AnimationPanelType,
   animationPanelTypeToString,
 } from "./animationPanelType";
-import { PRELOADED_IMAGE_LIST } from "../../asset/preloadedData";
+import {
+  PRELOADED_IMAGE_ID_LIST,
+  imageLoader,
+} from "../../asset/preloadedData";
 import { Variants, motion } from "framer-motion";
+import Image from "next/image";
 
 export const getNextImageIndex = (
   imageListLength: number,
@@ -69,11 +73,15 @@ const ZoomSlideShowAnimation: React.FunctionComponent = () => {
       return "currentImage";
     }
 
-    if (index == getNextImageIndex(PRELOADED_IMAGE_LIST.length, imageIndex)) {
+    if (
+      index == getNextImageIndex(PRELOADED_IMAGE_ID_LIST.length, imageIndex)
+    ) {
       return "nextImage";
     }
 
-    if (index == getBackImageIndex(PRELOADED_IMAGE_LIST.length, imageIndex)) {
+    if (
+      index == getBackImageIndex(PRELOADED_IMAGE_ID_LIST.length, imageIndex)
+    ) {
       return "backImage";
     }
 
@@ -96,14 +104,22 @@ const ZoomSlideShowAnimation: React.FunctionComponent = () => {
       )}
     >
       <div className="w-full aspect-video relative">
-        {PRELOADED_IMAGE_LIST.map((imageSrc, index) => (
-          <motion.img
+        {PRELOADED_IMAGE_ID_LIST.map((imageSrc, index) => (
+          <motion.div
             key={index}
             className="absolute aspect-video inset-0 w-full"
-            src={imageSrc}
             animate={indexToVariant(index)}
             variants={variants}
-          ></motion.img>
+          >
+            <Image
+              alt="zoom-slide-show-animation"
+              loader={() =>
+                imageLoader({ src: imageSrc, width: 400, quality: 80 })
+              }
+              src={`${imageSrc}.png`}
+              fill={true}
+            ></Image>
+          </motion.div>
         ))}
       </div>
       <div className="w-full flex flex-row items-center justify-between mt-[1em]">
@@ -117,7 +133,7 @@ const ZoomSlideShowAnimation: React.FunctionComponent = () => {
             isNextOrPrevButtonPressableRef.current = false;
 
             setImageIndex(
-              getBackImageIndex(PRELOADED_IMAGE_LIST.length, imageIndex)
+              getBackImageIndex(PRELOADED_IMAGE_ID_LIST.length, imageIndex)
             );
           }}
         >
@@ -133,7 +149,7 @@ const ZoomSlideShowAnimation: React.FunctionComponent = () => {
             isNextOrPrevButtonPressableRef.current = false;
 
             setImageIndex(
-              getNextImageIndex(PRELOADED_IMAGE_LIST.length, imageIndex)
+              getNextImageIndex(PRELOADED_IMAGE_ID_LIST.length, imageIndex)
             );
           }}
         >

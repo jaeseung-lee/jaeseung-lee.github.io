@@ -4,8 +4,12 @@ import {
   AnimationPanelType,
   animationPanelTypeToString,
 } from "./animationPanelType";
-import { PRELOADED_IMAGE_LIST } from "../../asset/preloadedData";
+import {
+  PRELOADED_IMAGE_ID_LIST,
+  imageLoader,
+} from "../../asset/preloadedData";
 import { motion, useScroll, useSpring } from "framer-motion";
+import Image from "next/image";
 
 const Acordian: React.FunctionComponent = () => {
   const scrollContainerRef = useRef(null);
@@ -34,14 +38,9 @@ const Acordian: React.FunctionComponent = () => {
         ref={scrollContainerRef}
         className="flex flex-row items-center justify-start rounded-[0.5em] overflow-x-auto mt-[1em]"
       >
-        {PRELOADED_IMAGE_LIST.map((imageSrc, index) => (
-          <motion.img
+        {PRELOADED_IMAGE_ID_LIST.map((imageSrc, index) => (
+          <motion.div
             key={index}
-            className="object-cover object-center h-[60vh] flex-none"
-            src={imageSrc}
-            onClick={() => {
-              setOpenedImageIndex(index);
-            }}
             animate={{
               width: openedImageIndex == index ? "80%" : "5%",
               transition: {
@@ -49,7 +48,21 @@ const Acordian: React.FunctionComponent = () => {
                 duration: 0.5,
               },
             }}
-          ></motion.img>
+            onClick={() => {
+              setOpenedImageIndex(index);
+            }}
+            className="relative h-[60vh] flex-none"
+          >
+            <Image
+              loader={() =>
+                imageLoader({ src: imageSrc, width: 400, quality: 80 })
+              }
+              className="object-cover object-center h-[60vh] flex-none"
+              src={`${imageSrc}.png`}
+              alt="accordian-image"
+              fill={true}
+            ></Image>
+          </motion.div>
         ))}
       </div>
     </AnimationPanelLayout>
