@@ -6,27 +6,29 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p ${PORT:-4000}",
     "lint": "next lint",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.1.1",
     "framer-motion": "^11.0.6",
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "next": "14.1.1",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@swc/cli": "^0.3.10",
+    "@swc/core": "^1.4.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.1"
+    "typescript": "^5"
   }
 }

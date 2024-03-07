@@ -1,10 +1,5 @@
-import Index from "@/components/index/Index";
-import MainLayout from "@/components/layout/MainLayout";
+import Animation from "@/components/animation/Animation";
 
 export default function Home() {
-  return (
-    <MainLayout>
-      <Index />
-    </MainLayout>
-  );
+  return <Animation />;
 }

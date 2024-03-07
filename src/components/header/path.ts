@@ -1,6 +1,6 @@
 export enum Path {
   ANIMATION,
-  PORTFOLIO,
+  COMPONENT,
 }
 
 export const getPath = (path: Path) => {
@@ -8,8 +8,8 @@ export const getPath = (path: Path) => {
     case Path.ANIMATION: {
       return "";
     }
-    case Path.PORTFOLIO: {
-      return "portfolio";
+    case Path.COMPONENT: {
+      return "component";
     }
   }
 };
@@ -19,16 +19,16 @@ export const pathToString = (path: Path) => {
     case Path.ANIMATION: {
       return "Animations";
     }
-    case Path.PORTFOLIO: {
-      return "Portfolio";
+    case Path.COMPONENT: {
+      return "Component";
     }
   }
 };
 
 export const textToPath = (text: string) => {
   switch (text) {
-    case "portfolio": {
-      return Path.PORTFOLIO;
+    case "component": {
+      return Path.COMPONENT;
     }
     default: {
       return Path.ANIMATION;

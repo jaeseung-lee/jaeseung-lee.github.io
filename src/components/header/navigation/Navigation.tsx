@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import NavigationMenuButton from "./NavigationMenuButton";
-import { Path, pathToString } from "../path";
+import { Path, getPath, pathToString } from "../path";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Navigation: React.FunctionComponent = () => {
   const [isNavigationModalOpened, setIsNavigationModalOpened] = useState(false);
@@ -22,16 +23,17 @@ const Navigation: React.FunctionComponent = () => {
       />
 
       <div className="w-full h-full hidden md:inline-flex items-center justify-start pl-[2em] gap-[2em]">
-        {[Path.ANIMATION, Path.PORTFOLIO].map((path, index) => (
-          <button
+        {[Path.ANIMATION, Path.COMPONENT].map((path, index) => (
+          <Link
+            href={"/" + getPath(path)}
             key={index}
-            className="relative h-full"
+            className="relative h-full flex items-center justify-center"
             onClick={() => {
               setIsNavigationModalOpened(false);
             }}
           >
             <p className="w-full text-left">{pathToString(path)}</p>
-          </button>
+          </Link>
         ))}
       </div>
 
@@ -41,8 +43,8 @@ const Navigation: React.FunctionComponent = () => {
           animate={{ opacity: 1 }}
           className="fixed bottom-0 left-0 right-0 top-[4em] px-[1.5em] bg-black z-modal"
         >
-          {[Path.ANIMATION, Path.PORTFOLIO].map((path, index) => (
-            <motion.button
+          {[Path.ANIMATION, Path.COMPONENT].map((path, index) => (
+            <motion.div
               key={index}
               initial={{
                 opacity: 0,
@@ -54,13 +56,18 @@ const Navigation: React.FunctionComponent = () => {
                   delay: index * 0.2,
                 },
               }}
-              className="w-full border-b border-boundary py-[0.8em] flex items-center justify-start"
+              className="w-full border-b border-boundary"
               onClick={() => {
                 setIsNavigationModalOpened(false);
               }}
             >
-              <p className="w-full text-left">{pathToString(path)}</p>
-            </motion.button>
+              <Link
+                href={"/" + getPath(path)}
+                className="py-[0.8em] flex items-center justify-start"
+              >
+                <p className="w-full text-left">{pathToString(path)}</p>
+              </Link>
+            </motion.div>
           ))}
         </motion.div>
       )}

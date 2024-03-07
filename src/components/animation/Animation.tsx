@@ -37,7 +37,7 @@ export const animationTypeToPanel = (animationType: AnimationPanelType) => {
   }
 };
 
-const Index: React.FunctionComponent = () => {
+const Animation: React.FunctionComponent = () => {
   const [currentAnimationType, setCurrentAnimationType] =
     useState<AnimationPanelType>(AnimationPanelType.LAYOUT_ID);
 
@@ -82,4 +82,4 @@ const Index: React.FunctionComponent = () => {
   );
 };
 
-export default Index;
+export default Animation;
